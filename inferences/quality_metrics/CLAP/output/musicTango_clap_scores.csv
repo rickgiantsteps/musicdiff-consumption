@@ -1,0 +1,13 @@
+model,steps,baseline,clap_score
+musicTango,10,musiccaps,0.27820202708244324
+musicTango,25,musiccaps,0.34925809502601624
+musicTango,50,musiccaps,0.3569593131542206
+musicTango,100,musiccaps,0.34854549169540405
+musicTango,150,musiccaps,0.33287790417671204
+musicTango,200,musiccaps,0.34932222962379456
+musicTango,10,songdescriber,0.1710709035396576
+musicTango,25,songdescriber,0.2555817663669586
+musicTango,50,songdescriber,0.2702734172344208
+musicTango,100,songdescriber,0.26834121346473694
+musicTango,150,songdescriber,0.22855708003044128
+musicTango,200,songdescriber,0.2715226113796234

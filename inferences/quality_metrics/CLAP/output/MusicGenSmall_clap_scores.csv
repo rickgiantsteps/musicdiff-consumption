@@ -1,0 +1,3 @@
+model,size,baseline,clap_score
+MusicGen,Small,musiccaps,0.22564570605754852
+MusicGen,Small,songdescriber,0.23387685418128967

@@ -1,0 +1,3 @@
+model,size,baseline,fad_score_laion,fad_score_encodec
+Magnet,Medium,musiccaps,0.3792031559515659,40.35149679048661
+Magnet,Medium,songdescriber,0.2464276988436494,26.40428703872351
