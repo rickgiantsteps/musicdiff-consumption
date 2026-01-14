@@ -1,0 +1,3 @@
+model,baseline,gpu_energy,emissions
+MusicGenMedium,musiccaps,0.2339137743535238,0.1144540517997164
+MusicGenMedium,songdescriber,0.232427789275035,0.1141273094445885

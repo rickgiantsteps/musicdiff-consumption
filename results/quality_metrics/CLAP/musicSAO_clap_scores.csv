@@ -1,0 +1,13 @@
+model,steps,baseline,clap_score
+musicSAO,10,musiccaps,0.2430802285671234
+musicSAO,25,musiccaps,0.286438912153244
+musicSAO,50,musiccaps,0.2946231961250305
+musicSAO,100,musiccaps,0.29852986335754395
+musicSAO,150,musiccaps,0.29871293902397156
+musicSAO,200,musiccaps,0.30003654956817627
+musicSAO,10,songdescriber,0.22003856301307678
+musicSAO,25,songdescriber,0.26169365644454956
+musicSAO,50,songdescriber,0.2685976028442383
+musicSAO,100,songdescriber,0.2714596688747406
+musicSAO,150,songdescriber,0.26807069778442383
+musicSAO,200,songdescriber,0.269803524017334

@@ -1,0 +1,3 @@
+model,baseline,gpu_energy,emissions
+MagnetSmall,musiccaps,0.03089548693877487,0.010816940004073298
+MagnetSmall,songdescriber,0.03073656625490085,0.010761408255995529

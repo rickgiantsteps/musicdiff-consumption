@@ -1,0 +1,13 @@
+model,steps,baseline,clap_score
+AudioX,10,musiccaps,0.20597116649150848
+AudioX,25,musiccaps,0.31346455216407776
+AudioX,50,musiccaps,0.3241916000843048
+AudioX,100,musiccaps,0.3169494569301605
+AudioX,150,musiccaps,0.3241984248161316
+AudioX,200,musiccaps,0.3223779499530792
+AudioX,10,songdescriber,0.20869475603103638
+AudioX,25,songdescriber,0.277852326631546
+AudioX,50,songdescriber,0.28469449281692505
+AudioX,100,songdescriber,0.28337863087654114
+AudioX,150,songdescriber,0.2888302505016327
+AudioX,200,songdescriber,0.2839130163192749

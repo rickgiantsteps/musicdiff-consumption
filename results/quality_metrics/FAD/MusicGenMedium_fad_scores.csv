@@ -1,0 +1,3 @@
+model,size,baseline,fad_score_laion,fad_score_encodec
+MusicGen,Medium,musiccaps,0.4669926907987933,101.68716772177996
+MusicGen,Medium,songdescriber,0.3084640070732998,91.90649987638719

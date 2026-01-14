@@ -1,0 +1,13 @@
+model,steps,baseline,clap_score
+MusicLDM,10,musiccaps,0.36114948987960815
+MusicLDM,25,musiccaps,0.38594964146614075
+MusicLDM,50,musiccaps,0.38959503173828125
+MusicLDM,100,musiccaps,0.39177602529525757
+MusicLDM,150,musiccaps,0.3979068398475647
+MusicLDM,200,musiccaps,0.39471906423568726
+MusicLDM,10,songdescriber,0.362887978553772
+MusicLDM,25,songdescriber,0.3872826397418976
+MusicLDM,50,songdescriber,0.3826751410961151
+MusicLDM,100,songdescriber,0.38662558794021606
+MusicLDM,150,songdescriber,0.3884921669960022
+MusicLDM,200,songdescriber,0.39182767271995544

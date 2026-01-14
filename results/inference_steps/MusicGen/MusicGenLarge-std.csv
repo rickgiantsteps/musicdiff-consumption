@@ -1,0 +1,5 @@
+project_name,emissions,emissions_rate,cpu_power,gpu_power,ram_power,cpu_energy,gpu_energy,ram_energy,energy_consumed
+"   emissions  emissions_rate  ...    ram_energy  energy_consumed
+0   0.000003    3.452628e-07  ...  4.578471e-08          0.00001
+
+[1 rows x 9 columns]",3.4433299195620965e-06,3.452627960235864e-07,0.0,251.3612015615128,0.0005732107852477489,6.880227513015813e-06,4.36612704634847e-06,4.578471102879571e-08,1.041167979837846e-05
