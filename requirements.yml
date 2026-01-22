@@ -1,0 +1,19 @@
+name: musicdiffusionenergy
+channels:
+  - defaults
+dependencies:
+  - python=3.12.10
+  - numpy=2.0.2
+  - pandas=2.2.3
+  - matplotlib=3.9.2
+  - scipy=1.13.0
+  - seaborn=0.13.2
+  - pip
+  - pip:
+    - pip==24.3.1
+    - torch==2.5.1
+    - codecarbon==2.7.2
+    - diffusers==0.31.0
+    - glasbey==0.2.1
+    - soundfile==0.12.1
+    - tqdm==4.66.5
