@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Website for the 'Analyzing the Energy Consumption of Generative
+            Text-to-Music Models' journal paper.">
+  <meta name="keywords" content="Analyzing the Energy Consumption of Generative
+            Text-to-Music Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing the Energy Consumption of Generative
+    Text-to-Music Models</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Analyzing the Energy Consumption of Generative
+            Text-to-Music Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/francesca-ronchini/">Francesca Ronchini</a><sup>*1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/riccardo-passoni/">Riccardo Passoni</a><sup>*2</sup>,</span>
+            <span class="author-block">
+              <a href="https://lucacoma.github.io/">Luca Comanducci</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://members.loria.fr/RSerizel/">Romain Serizel</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.deib.polimi.it/ita/personale/dettagli/573870">Fabio Antonacci</a><sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Dipartimento di Elettronica, Informazione e Bioingegneria - Politecnico di Milano, Milan, Italy</span>
+            <span class="author-block"><sup>2</sup>Institute of Sound Recording (IoSR), University of Surrey, Guildford, UK</span>
+            <span class="author-block"><sup>3</sup>Université de Lorraine, CNRS, Inria, Loria, Nancy, France</span><br>
+            <span class="author-block"><sup>*</sup>These authors contributed equally</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rickgiantsteps/musicdiff-consumption"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/rickgiantsteps/musicdiff-consumption/tree/main/results"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Results</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified abstract-text">
+          <p>
+            Music generation via multimodal machine learning
+            generative models has recently gained significant traction in both
+            the research community and the general public. Among such
+            models, an important category is represented by Text-To-Music
+            models, which take only a textual description or caption as input
+            to specify the type of composition the user wishes to generate.
+            While generative artificial intelligence models achieve remarkable
+            performance, they also require substantial computational power
+            during both training and inference. The latter, in particular,
+            becomes increasingly critical as these models are deployed more
+            widely in real-world music-making applications. In this paper, we
+            address this issue by analyzing the energy consumption of seven
+            diffusion-based and two autoregressive Text-To-Music models.
+            Through a series of experiments, we evaluate how model-dependent generation parameters influence energy usage during
+            inference. Since audio generation quality, prompt adherence, and
+            energy efficiency are all important, we employ Pareto-optimal
+            analysis to explore the trade-offs among these competing
+            objectives. Our results highlight the balance between model
+            performance and energy usage, offering guidance for designing
+            more environmentally conscious generative audio systems.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Tested Models. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-2">Tested Models</h2>
+
+        <div class="columns has-text-left tested-models">
+
+          <div class="column">
+            <ul>
+              <li>
+                <a href="https://huggingface.co/cvssp/audioldm-s-full-v2" target="_blank">
+                  AudioLDM
+                </a>
+              </li>
+
+              <li>
+                <a href="https://huggingface.co/cvssp/audioldm2-music" target="_blank">
+                  AudioLDM2
+                </a>
+              </li>
+
+              <li>
+                <a href="https://huggingface.co/papers/2308.01546" target="_blank">
+                  MusicLDM
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="column">
+            <ul>
+              <li>
+                <a href="https://huggingface.co/stabilityai/stable-audio-open-1.0" target="_blank">
+                  Stable Audio Open
+                </a>
+              </li>
+
+              <li>
+                <a href="https://huggingface.co/declare-lab/tango-music-af-ft-mc" target="_blank">
+                  TangoMusic
+                </a>
+              </li>
+
+              <li>
+                <a href="https://zeyuet.github.io/AudioX/" target="_blank">
+                  AudioX
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="column">
+            <ul>
+              <li>
+                <a href="https://huggingface.co/ACE-Step/ACE-Step-v1-3.5B" target="_blank">
+                  ACE-Step
+                </a>
+              </li>
+
+              <li>
+                <a href="https://musicgen.com/" target="_blank">
+                  MusicGen
+                </a>
+                (<a href="https://huggingface.co/facebook/musicgen-small" target="_blank">S</a>,
+                <a href="https://huggingface.co/facebook/musicgen-medium" target="_blank">M</a>,
+                <a href="https://huggingface.co/facebook/musicgen-large" target="_blank">L</a>)
+              </li>
+
+              <li>
+                <a href="https://facebookresearch.github.io/audiocraft/docs/MAGNET.html" target="_blank">
+                  MAGNeT
+                </a>
+                (<a href="https://huggingface.co/facebook/magnet-small-10secs" target="_blank">S</a>,
+                <a href="https://huggingface.co/facebook/magnet-medium-10secs" target="_blank">M</a>)
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!--/ Tested Models. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-2">Experiments</h2>
+
+        <div class="experiment-header">
+          <h3 class="title is-3">Varying Inference Step Number</h3>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/inference_steps/diffmodels-gpu_energy-lineplot.pdf" target="_blank">
+          <img src="static/images/diffmodels-gpu_energy-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">GPU energy consumption during audio generation</figcaption>
+      </figure>
+      <figure>
+        <a href="./figures/inference_steps/['musicAudioLDM', 'musicAudioLDM2']-gpu_energy-barplot.pdf" target="_blank">
+          <img src="static/images/[musicAudioLDM, musicAudioLDM2]-gpu_energy-barplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">Efficiency comparison between AudioLDM and AudioLDM2</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/inference_steps/diffmodels-emissions-lineplot.pdf" target="_blank">
+          <img src="static/images/diffmodels-emissions-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">Equivalent CO2 emissions generated by the inference setups</figcaption>
+      </figure>
+      <figure>
+        <a href="./figures/inference_steps/diffmodels-emissions_rate-lineplot.pdf" target="_blank">
+          <img src="static/images/diffmodels-emissions_rate-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">CO2 equivalents emitted per second by the models</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <div class="experiment-header">
+          <h3 class="title is-3">Varying Inference Batch Size</h3>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/batch_size/allmodels-gpu_energy-lineplot.pdf" target="_blank">
+          <img src="static/images/allmodels-gpu_energy-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">GPU energy consumption for different batch sizes</figcaption>
+      </figure>
+      <figure>
+        <a href="./figures/batch_size/allmodels-emissions-lineplot.pdf" target="_blank">
+          <img src="static/images/allmodels-emissions-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">Emissions released for different batch sizes</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/batch_size/heavymodels-gpu_energy-lineplot.pdf" target="_blank">
+          <img src="static/images/heavymodels-gpu_energy-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">GPU energy consumption (heavier models)</figcaption>
+      </figure>
+      <figure>
+        <a href="./figures/batch_size/lightmodels-gpu_energy-lineplot.pdf" target="_blank">
+          <img src="static/images/lightmodels-gpu_energy-lineplot.png" style="width: 100%; height: auto; display: block;">
+        </a>
+        <figcaption style="text-align: center; margin-top: 0.5rem; font-size: 1.25rem; color: #555;">GPU energy consumption (lighter models)</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <div class="experiment-header">
+          <h3 class="title is-3">Quality Metrics Analysis</h3>
+          <hr>
+          <br>
+          <p>This experiment was performed on randomly selected audio and caption pairs from the <a href="https://huggingface.co/datasets/google/MusicCaps">MusicCaps</a> and <a href="https://zenodo.org/records/10072001">SongDescriber</a> datasets. Pareto-efficient configurations are highlighted in red.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <div class="experiment-header">
+          <h3 class="title is-4">Fréchet Audio Distance (FAD)</h3>
+          <p>The FAD has been computed with the <a href="https://github.com/microsoft/fadtk">fadtk</a> library, using the <a href="https://github.com/LAION-AI/CLAP">LAION</a> and <a href="https://github.com/facebookresearch/encodec">EnCodec</a> encoders (lower is better).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="experiment-header">
+    <h3 class="title is-5" style="text-align: center;">MusicCaps Dataset</h3>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/legend.pdf" target="_blank">
+          <img src="static/images/legend.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_fad_score_laion.pdf" target="_blank">
+          <img src="static/images/musiccaps_fad_score_laion.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_fad_score_encodec.pdf" target="_blank">
+          <img src="static/images/musiccaps_fad_score_encodec.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="experiment-header">
+    <h3 class="title is-5" style="text-align: center;">SongDescriber Dataset</h3>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/legend.pdf" target="_blank">
+          <img src="static/images/legend.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_fad_score_laion.pdf" target="_blank">
+          <img src="static/images/songdescriber_fad_score_laion.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_fad_score_encodec.pdf" target="_blank">
+          <img src="static/images/songdescriber_fad_score_encodec.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <div class="experiment-header">
+          <h3 class="title is-4">Contrastive Language-Audio Pretraining (CLAP) Score</h3>
+          <p>CLAP Score results have been obtained with the <a href="https://github.com/Stability-AI/stable-audio-metrics">stable-audio-metrics</a> toolkit (higher is better).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="experiment-header">
+    <h3 class="title is-5"> </h3>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/legend.pdf" target="_blank">
+          <img src="static/images/legend.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_clap_score.pdf" target="_blank">
+          <img src="static/images/musiccaps_clap_score.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_clap_score.pdf" target="_blank">
+          <img src="static/images/songdescriber_clap_score.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <div class="experiment-header">
+          <h3 class="title is-4">Audiobox Metrics</h3>
+          <p>The following metrics were computed with the <a href="https://github.com/facebookresearch/audiobox-aesthetics">audiobox-aesthetics</a> library (higher is better):</p>
+          <div style="display: inline-grid; grid-template-columns: repeat(2, auto); gap: 0.4rem 3rem; margin-top: 0.75rem; text-align: left;">
+            <div><strong>CE</strong> — Content Enjoyment (subjective quality of audio)</div>
+            <div><strong>CU</strong> — Content Usefulness (suitability for content production)</div>
+            <div><strong>PC</strong> — Production Complexity (number of audio elements)</div>
+            <div><strong>PQ</strong> — Production Quality (evaluates technical properties)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="experiment-header">
+    <h3 class="title is-5" style="text-align: center;">MusicCaps Dataset</h3>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/legend.pdf" target="_blank">
+          <img src="static/images/legend.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 2fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_AudioboxCE.pdf" target="_blank">
+          <img src="static/images/musiccaps_AudioboxCE.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_AudioboxCU.pdf" target="_blank">
+          <img src="static/images/musiccaps_AudioboxCU.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_AudioboxPC.pdf" target="_blank">
+          <img src="static/images/musiccaps_AudioboxPC.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/musiccaps_AudioboxPQ.pdf" target="_blank">
+          <img src="static/images/musiccaps_AudioboxPQ.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+  <div class="experiment-header">
+    <h3 class="title is-5" style="text-align: center;">SongDescriber Dataset</h3>
+  </div>
+  <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/legend.pdf" target="_blank">
+          <img src="static/images/legend.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+    <div style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 2fr); gap: 50px;">
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_AudioboxCE.pdf" target="_blank">
+          <img src="static/images/songdescriber_AudioboxCE.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_AudioboxCU.pdf" target="_blank">
+          <img src="static/images/songdescriber_AudioboxCU.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_AudioboxPC.pdf" target="_blank">
+          <img src="static/images/songdescriber_AudioboxPC.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+      <figure>
+        <a href="./figures/quality_metrics/songdescriber_AudioboxPQ.pdf" target="_blank">
+          <img src="static/images/songdescriber_AudioboxPQ.png" style="width: 100%; height: auto; display: block;">
+        </a>
+      </figure>
+    </div>
+  </div>
+
+</section>
+
+<section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+          <div class="item item-video0 has-text-centered">
+            <h3 class="title is-3">Try it for yourself</h3>
+          </div>
+            <br>
+              <center>
+                <code class="column is-three-fifths hero is-dark" style="text-align: left;">
+                  git clone https://github.com/rickgiantsteps/musicdiff-consumption<br>
+                  cd musicdiff-consumption<br>
+                  <br>
+                  <br>
+                </code>
+                <br><br>
+                You can create the virtual environment and install the needed packages using conda with the following command<br><br>
+                <code class="column is-three-fifths hero is-dark" style="text-align: left;">
+                  conda env create -f requirements.yml<br>
+                </code>
+                <br>
+              </center>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@ARTICLE{ronchini2026,
+  author={Ronchini, Francesca and Passoni, Riccardo and Comanducci, Luca and Serizel, Romain and Antonacci, Fabio},
+  journal={IEEE Transactions on Technology & Society},
+  title={Analyzing the Energy Consumption of Generative Text-to-Music Models},
+  year={2026},
+  volume={},
+  number={},
+  pages={},
+  keywords={},
+  doi={}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/rickgiantsteps">
+          <i class="fas fa-home"></i>
+      </a>
+      <a class="icon-link"
+         href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/rickgiantsteps/musicdiff-consumption" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <center><p>
+            This website was adapted from <a
+            href="https://nerfies.github.io">Nerfies</a> and is licensed under a <br><a rel="license"
+            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>
+          </p></center>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
